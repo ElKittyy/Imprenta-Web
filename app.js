@@ -6,7 +6,7 @@ import viewsRoutes from './routes/views.js';
 import session from 'express-session';
 
 const app = express();
-app.set('port', 3000);
+app.set('port', 3306);
 app.set('view engine', 'ejs');
 
 app.use(session({
