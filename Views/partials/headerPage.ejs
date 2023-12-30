@@ -1,0 +1,21 @@
+<header>
+    <div class="cabecera">
+        <h1><b>IMPRENTA plap</b></h1>
+    </div>
+    <navbar class="NAV">
+        <ul>
+            <li><a href="/index"><i class="fa-solid fa-house boton"></i></a></li>
+            <li><a href="/products" class="boton">PRODUCTOS</a></li>
+            <li><a href="/ayuda" class="boton">AYUDA</a></li>
+             <% if (esadmin == -1){ %>
+                <li><a href="/login"><button class="fa-regular fa-user" id="usricon"></button></a></li>
+            <% } else if (esadmin == 1){ %>
+                <li><a href="/adminProducts"><button class="fa-regular fa-user" id="usricon"></button></a></li>
+            <% } else if (esadmin == 0) { %>
+                <li><a href="/perfil"><button class="fa-regular fa-user" id="usricon"></button></a></li>
+            <% } else { %>
+                <li><a href="/login"><button class="fa-regular fa-user" id="usricon"></button></a></li>
+            <% }  %>
+        </ul>
+    </navbar>
+</header>

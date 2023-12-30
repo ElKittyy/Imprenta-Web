@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headAdmin') %>
+</head>
+<body>
+    <%- include('../partials/headerAdmin')%>
+
+    <div class="usuarios">
+        <a onclick="guardarId(0)" href="/adminUsrAE" class="btn btn-primary">Agregar usuario</a>
+        <div class="tabla_usr">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>MAIL</th>
+                        <th>DIRECCION</th>
+                        <th>TELEFONO</th>
+                        <th>CONTRASEÑA</th>
+                        <th>OPCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% adminUser.forEach(function(au){ %>
+                    <tr data-id="${item.id}">
+                        <td><%= au.id %></td>
+                        <td><%= au.email %></td>
+                        <td><%= au.direccion %></td>
+                        <td><%= au.tel %></td>
+                        <td><%= au.password %></td>
+                        <td>
+                            <a href="/adminUsrAE" onclick="guardarId(<%= au.id %>)" class="btn btn-success">Editar</a>
+                            <button onclick="eliminarCliente(<%= au.id %>)">Eliminar</button>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/users.js"></script>
+    <script src="js/validation.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headPage') %>
+</head>
+<body>
+
+    <%- include('../partials/headerPage') %>
+
+    <div class="form-init">
+        <input type="email" placeholder="email" id="email">
+        <input type="password" placeholder="contraseña" id="pass">
+        <div>
+            <button id="ingresar">Ingresar</button>
+        </div>
+    </div>
+
+    <footer>
+        <%- include('../partials/footerPage') %>
+    </footer>
+    <script src="js/validation2.js"></script>
+    <script type="text/javascript">
+
+        $("#ingresar").on("click", function(){
+
+            var email = $("#email").val();
+            var pass = $("#pass").val();
+
+            $.ajax({
+            "url": URL_BASE + "iniciarSesion",
+            "type": "POST",
+            "dataType": "json",
+            "data":{
+                "email": email,
+                "password": pass,
+            },"success": function(r){
+                if(r.error == 0){
+                    localStorage.setItem("token_usuario", r.token);
+                    location.href = "/index";
+                } else{
+                    alert ("datos incorrectos");
+                }
+                },
+            });
+        });
+    </script>
+</body>
+</html>

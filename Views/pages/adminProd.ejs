@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/headAdmin') %>
+</head>
+<body>
+    <%- include('../partials/headerAdmin')%>
+
+    <div class="productos">
+        <a onclick="guardarIdProd(0)" href="/adminProdAE" class="btn btn-primary">Agregar Producto</a>
+        <div class="tabla_prod">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>PRECIO</th>
+                        <th>NOMBRE</th>
+                        <th>OPCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% adminProducts.forEach(function(ap){ %>
+                    <tr data-id="${item.id}">
+                        <td><%= ap.id %></td>
+                        <td><%= ap.precio %></td>
+                        <td><%= ap.nombre %></td>
+                        <td>
+                            <a href="/adminProdAE" onclick="guardarIdProd(<%= ap.id %>)" class="btn btn-success">Editar</a>
+                            <button onclick="eliminarProducto(<%= ap.id %>)">Eliminar</button>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>

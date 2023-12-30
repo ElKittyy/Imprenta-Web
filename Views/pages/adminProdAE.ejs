@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/headAdmin') %>
+</head>
+<body>
+    <%- include('../partials/headerAdmin')%>
+
+    <div>
+        <div>
+            <a href="/adminProd" class="btn btn-primary">Ver Productos</a>
+        </div>
+        <input type="text" placeholder="nombre" id="prod_name">
+        <input type="text" placeholder="precio" id="prod_price">
+        <a href="javascript:void(0)" class="btn btn-outline-danger guardar">Guardar</a>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/validation.js"></script>
+    <script type="text/javascript">
+        getProducto();
+
+        $(".guardar").on("click", function(){
+            guardarProd();
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headPage') %>
+</head>
+<body>
+
+    <%- include('../partials/headerPage', {esadmin: esadmin}) %>
+
+    <div class="productos_prin" id="prod_prin">
+        <% products.forEach(function(p){ %>
+            <div class="target">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"><%= p.nombre %></h4>
+                        <h5>$<%= p.precio %></h5>
+                        <a href="" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <footer>
+        <%- include('../partials/footerPage') %>
+    </footer>
+    <script src="js/validation2.js"></script>
+</body>
+</html>

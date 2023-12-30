@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headAdmin') %>
+</head>
+<body>
+    <%- include('../partials/headerAdmin')%>
+
+    <div>
+        <div>
+            <a href="/adminUser" class="btn btn-primary">Ver Usuarios</a>
+        </div>
+        <input type="email" placeholder="email" id="usr_mail">
+        <input type="text" placeholder="direccion" id="usr_direccion">
+        <input type="text" placeholder="telefono" id="usr_tel">
+        <input type="password" placeholder="pass" id="usr_pass">
+        <a href="javascript:void(0)" class="btn btn-outline-danger guardar">Guardar</a>
+    </div>
+    <script src="js/users.js"></script>
+    <script src="js/validation.js"></script>
+    <script type="text/javascript">
+        getUsuario();
+
+        $(".guardar").on("click", function(){
+            guardarUsr();
+        });
+    </script>
+    
+</body>
+</html>
